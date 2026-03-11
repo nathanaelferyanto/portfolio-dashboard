@@ -22,6 +22,7 @@ export const EducationSection = () => {
             title="Bachelor of Applied Science"
             subtitle="Software Engineering Technology"
             gpa="3.68/4.00"
+            imageUrl="https://ui-avatars.com/api/?name=IPB&background=2563eb&color=fff&size=200&bold=true"
             details={
               <>
                 <strong className="text-zinc-900 dark:text-zinc-100">
@@ -33,24 +34,6 @@ export const EducationSection = () => {
               </>
             }
           />
-
-          <h2 className="text-2xl font-black tracking-tight pt-4">
-            Non-Formal Education
-          </h2>
-          <EducationCard
-            institution="Bangkit Academy"
-            location="led by Google, Tokopedia, Gojek, & Traveloka"
-            duration="Aug 2023 - Jan 2024"
-            badgeColor="zinc"
-            title="Cloud Computing Cohort"
-            subtitle="Studi Independen Kampus Merdeka • Remote"
-            details={[
-              "Focusing on full-stack web development principles and soft skills.",
-              "Deepened technical proficiency in Node.js to build scalable RESTful APIs.",
-              "Gained foundational exposure to DevOps practices and cloud infrastructure.",
-              "Collaborated on a Capstone Project to deliver backend integration.",
-            ]}
-          />
         </div>
 
         {/* Certifications & Languages */}
@@ -61,16 +44,19 @@ export const EducationSection = () => {
               title="Software Engineer Competency Certification"
               issuer="BNSP"
               date="Valid: Sep 2025 - Sep 2028"
+              imageUrl="https://ui-avatars.com/api/?name=BNSP&background=eab308&color=fff&size=150&bold=true"
             />
             <CertificationCard
               title="Cloud Computing Program Certificate"
               issuer="Bangkit Academy"
               date="Jan 2024"
+              imageUrl="https://ui-avatars.com/api/?name=BA&background=ef4444&color=fff&size=150&bold=true"
             />
             <CertificationCard
               title="English for Business Communication"
               issuer="The British Institute"
               date="Nov 2023"
+              imageUrl="https://ui-avatars.com/api/?name=TBI&background=3b82f6&color=fff&size=150&bold=true"
             />
           </div>
 

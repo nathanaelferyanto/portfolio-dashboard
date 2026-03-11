@@ -17,14 +17,6 @@ export const ExperienceSection = () => {
         "Developed a web-based remote attendance system using GPS location validation to verify employee check-ins.",
         "Designed and built a public corporate website with a custom CMS allowing non-technical staff updates.",
       ],
-      techStack: [
-        "React",
-        "Laravel",
-        "Express",
-        "MySQL",
-        "Docker",
-        "GitHub Actions",
-      ],
     },
     {
       duration: "Jul 2024 - Dec 2024",
@@ -37,7 +29,6 @@ export const ExperienceSection = () => {
         "Built functionality for investors to join/withdraw from batches, and administrators to manage participation.",
         "Developed bulk data import features to streamline investor administration.",
       ],
-      techStack: ["Figma", "React", "Express", "MySQL"],
     },
     {
       duration: "Jan 2024 - May 2024",
@@ -50,7 +41,18 @@ export const ExperienceSection = () => {
         "Implemented participant registration and verification workflows with validation and approval systems.",
         "Integrated frontend interfaces with backend services to support secure data handling.",
       ],
-      techStack: ["Laravel", "MySQL"],
+    },
+    {
+      duration: "Aug 2023 - Jan 2024",
+      location: "Studi Independen Kampus Merdeka • Remote",
+      role: "Cloud Computing Cohort",
+      company: "Bangkit Academy (led by Google, Tokopedia, Gojek, & Traveloka)",
+      responsibilities: [
+        "Focusing on full-stack web development principles and soft skills.",
+        "Deepened technical proficiency in Node.js to build scalable RESTful APIs.",
+        "Gained foundational exposure to DevOps practices and cloud infrastructure.",
+        "Collaborated on a Capstone Project to deliver backend integration.",
+      ],
     },
   ];
 

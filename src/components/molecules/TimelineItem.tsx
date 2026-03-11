@@ -7,7 +7,6 @@ export interface TimelineItemProps {
   role: string;
   company: string;
   responsibilities: string[];
-  techStack: string[];
   isLatest?: boolean;
 }
 
@@ -17,7 +16,6 @@ export const TimelineItem = ({
   role,
   company,
   responsibilities,
-  techStack,
   isLatest = false,
 }: TimelineItemProps) => {
   const pinColorBase = isLatest
@@ -58,15 +56,6 @@ export const TimelineItem = ({
               <li key={i}>{resp}</li>
             ))}
           </ul>
-          {techStack.length > 0 && (
-            <div className="flex flex-wrap gap-2 pt-2">
-              {techStack.map((tech) => (
-                <Pill key={tech} variant="tech">
-                  {tech}
-                </Pill>
-              ))}
-            </div>
-          )}
         </div>
       </div>
     </div>

@@ -12,82 +12,71 @@ import {
 } from "react-icons/fi";
 import { useState, useEffect } from "react";
 
+const navItems = [
+  {
+    href: "#home",
+    id: "home",
+    label: "Home",
+    icon: <FiHome className="w-5 h-5" />,
+  },
+  {
+    href: "#about",
+    id: "about",
+    label: "About",
+    icon: <FiUser className="w-5 h-5" />,
+  },
+  {
+    href: "#experience",
+    id: "experience",
+    label: "Experience",
+    icon: <FiBriefcase className="w-5 h-5" />,
+  },
+  {
+    href: "#projects",
+    id: "projects",
+    label: "Projects",
+    icon: <FiCode className="w-5 h-5" />,
+  },
+  {
+    href: "#education",
+    id: "education",
+    label: "Education",
+    icon: <FiBookOpen className="w-5 h-5" />,
+  },
+  {
+    href: "#contact",
+    id: "contact",
+    label: "Contact",
+    icon: <FiMail className="w-5 h-5" />,
+  },
+];
+
 const Navbar = () => {
   const [activeSection, setActiveSection] = useState("home");
 
-  const navItems = [
-    {
-      href: "#home",
-      id: "home",
-      label: "Home",
-      icon: <FiHome className="w-5 h-5" />,
-    },
-    {
-      href: "#about",
-      id: "about",
-      label: "About",
-      icon: <FiUser className="w-5 h-5" />,
-    },
-    {
-      href: "#experience",
-      id: "experience",
-      label: "Experience",
-      icon: <FiBriefcase className="w-5 h-5" />,
-    },
-    {
-      href: "#projects",
-      id: "projects",
-      label: "Projects",
-      icon: <FiCode className="w-5 h-5" />,
-    },
-    {
-      href: "#education",
-      id: "education",
-      label: "Education",
-      icon: <FiBookOpen className="w-5 h-5" />,
-    },
-    {
-      href: "#skills",
-      id: "skills",
-      label: "Skills",
-      icon: <FiCpu className="w-5 h-5" />,
-    },
-    {
-      href: "#contact",
-      id: "contact",
-      label: "Contact",
-      icon: <FiMail className="w-5 h-5" />,
-    },
-  ];
-
   useEffect(() => {
-    // Intercept scroll to highlight nav items based on section visibility
-    const handleScroll = () => {
-      let currentSection = "";
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActiveSection(entry.target.id);
+          }
+        });
+      },
+      {
+        threshold: 0.5,
+      },
+    );
 
-      // Calculate what constitutes 'viewing' a section. Center of viewport is good.
-      const scrollPosition = window.scrollY + window.innerHeight / 2;
-
-      for (let i = navItems.length - 1; i >= 0; i--) {
-        const item = navItems[i];
-        const element = document.getElementById(item.id);
-        if (element && element.offsetTop <= scrollPosition) {
-          currentSection = item.id;
-          break;
-        }
+    navItems.forEach((item) => {
+      const element = document.getElementById(item.id);
+      if (element) {
+        observer.observe(element);
       }
+    });
 
-      if (currentSection && currentSection !== activeSection) {
-        setActiveSection(currentSection);
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    // Initial call
-    handleScroll();
-
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, [activeSection]); // eslint-disable-line react-hooks/exhaustive-deps
+    return () => observer.disconnect();
+  }, []);
 
   return (
     <>
