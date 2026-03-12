@@ -6,7 +6,6 @@ import {
   FiUser,
   FiBriefcase,
   FiBookOpen,
-  FiCpu,
   FiMail,
   FiCode,
 } from "react-icons/fi";
@@ -14,37 +13,37 @@ import { useState, useEffect } from "react";
 
 const navItems = [
   {
-    href: "#home",
+    href: "home",
     id: "home",
     label: "Home",
     icon: <FiHome className="w-5 h-5" />,
   },
   {
-    href: "#about",
+    href: "about",
     id: "about",
     label: "About",
     icon: <FiUser className="w-5 h-5" />,
   },
   {
-    href: "#experience",
+    href: "experience",
     id: "experience",
     label: "Experience",
     icon: <FiBriefcase className="w-5 h-5" />,
   },
   {
-    href: "#projects",
+    href: "projects",
     id: "projects",
     label: "Projects",
     icon: <FiCode className="w-5 h-5" />,
   },
   {
-    href: "#education",
+    href: "education",
     id: "education",
     label: "Education",
     icon: <FiBookOpen className="w-5 h-5" />,
   },
   {
-    href: "#contact",
+    href: "contact",
     id: "contact",
     label: "Contact",
     icon: <FiMail className="w-5 h-5" />,
@@ -107,23 +106,6 @@ const Navbar = () => {
             );
           })}
         </nav>
-      </div>
-
-      {/* Modern Floating Header Bar (Top Right) for Logo & Fast CTA */}
-      <div className="fixed top-6 right-6 z-40 flex items-center gap-4 bg-white/70 dark:bg-zinc-900/70 backdrop-blur-xl px-4 py-2 sm:px-6 sm:py-3 border border-zinc-200/50 dark:border-zinc-800/50 rounded-full shadow-lg">
-        <Link
-          href="/"
-          className="text-xl sm:text-2xl font-black tracking-tighter text-black dark:text-white"
-        >
-          Nath<span className="text-blue-500">.</span>
-        </Link>
-        <div className="w-px h-6 bg-zinc-300 dark:bg-zinc-700 hidden sm:block"></div>
-        <a
-          href="mailto:nathanaelferyanto@gmail.com"
-          className="hidden sm:block text-sm font-bold text-zinc-600 dark:text-zinc-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
-        >
-          Let's Talk
-        </a>
       </div>
     </>
   );

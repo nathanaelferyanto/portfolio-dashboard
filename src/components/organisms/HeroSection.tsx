@@ -10,7 +10,6 @@ export const HeroSection = () => {
       className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-40 flex flex-col items-center justify-center gap-12"
     >
       <div className="w-full max-w-4xl mx-auto space-y-10 animate-fade-in-up text-center flex flex-col items-center">
-        <Badge>Software Engineering Graduate</Badge>
         <h1 className="text-5xl md:text-8xl font-black tracking-tighter leading-tight flex flex-col pb-2">
           <span className="mb-4">
             Hi, I'm <span className="text-blue-500">Nathanael</span>.

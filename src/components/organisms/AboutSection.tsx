@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React from "react";
 import Image from "next/image";
 import { Pill } from "../atoms/Pill";
 import GlassIcons from "../atoms/GlassIcons";
@@ -20,8 +20,6 @@ import {
 } from "react-icons/si";
 
 export const AboutSection = () => {
-  const [activeTab, setActiveTab] = useState<"hard" | "soft">("hard");
-
   const hardSkillsIcons = [
     { icon: <SiJavascript />, color: "yellow", label: "JavaScript" },
     { icon: <SiTypescript />, color: "blue", label: "TypeScript" },
@@ -38,17 +36,18 @@ export const AboutSection = () => {
   ];
 
   const softSkills = [
-    "Growth mindset",
-    "Critical thinking",
-    "Problem solving",
-    "Adaptability",
-    "Professional communication",
+    { label: "Growth Mindset", emoji: "🚀" },
+    { label: "Critical Thinking", emoji: "🧠" },
+    { label: "Problem Solving", emoji: "🔍" },
+    { label: "Adaptability", emoji: "🔄" },
+    { label: "Professional Communication", emoji: "💬" },
   ];
 
   return (
     <section id="about" className="w-full relative py-20 md:py-32">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col gap-16 lg:gap-24">
+          {/* Top: Profile + Bio */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
             {/* Left Side: Profile Photo */}
             <div className="lg:col-span-5 flex justify-center lg:justify-start">
@@ -79,85 +78,81 @@ export const AboutSection = () => {
                   className="animate-fade-in-up"
                   style={{ animationDelay: "0.1s" }}
                 >
-                  I specialize in developing scalable web applications using
-                  JavaScript, TypeScript, React, Laravel, and Express.
-                  Experienced in building RESTful APIs, integrating systems, and
-                  implementing CI/CD pipelines.
-                </p>
-                <p
-                  className="animate-fade-in-up"
-                  style={{ animationDelay: "0.2s" }}
-                >
-                  I am a Software Engineering graduate seeking opportunities to
-                  further develop technical expertise and contribute to building
-                  software solutions that support real business operations.
-                </p>
-                <p
-                  className="animate-fade-in-up"
-                  style={{ animationDelay: "0.3s" }}
-                >
-                  Based in Bogor, Indonesia, I have a deep interest in modern
-                  web development technologies and cloud infrastructure. I
-                  approach problems with a growth mindset and am adaptable to
-                  new tools and environments.
+                  Software Engineering graduate with experience in developing
+                  web applications using JavaScript, TypeScript, React, Laravel,
+                  and Express. Experienced in building RESTful APIs, integrating
+                  systems, and implementing CI/CD pipelines with Docker and
+                  GitHub Actions. Seeking opportunities to further develop
+                  technical expertise and contribute to building software
+                  solutions that support real business operations.
                 </p>
               </div>
             </div>
           </div>
 
-          {/* Bottom Side: Skills Box */}
-          <div className="w-full">
-            <div className="bg-white/50 dark:bg-zinc-900/50 border border-zinc-200 dark:border-zinc-800 rounded-3xl p-6 md:p-10 shadow-sm backdrop-blur-xl transition-all duration-500 hover:shadow-lg">
-              <div className="flex flex-wrap items-center justify-between gap-4 mb-8 border-b border-zinc-200 dark:border-zinc-800 pb-4">
-                <div className="flex items-center gap-2">
-                  <button
-                    onClick={() => setActiveTab("hard")}
-                    className={`flex items-center gap-2 px-4 py-2 font-bold rounded-lg transition-all ${
-                      activeTab === "hard"
-                        ? "bg-blue-600 text-white shadow-md shadow-blue-500/20"
-                        : "text-zinc-500 hover:text-zinc-800 dark:text-zinc-400 dark:hover:text-zinc-200 hover:bg-zinc-100 dark:hover:bg-zinc-800"
-                    }`}
-                  >
-                    <FiCpu className="w-5 h-5" />
+          {/* Bottom: Skills — Hard & Soft side by side */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            {/* Hard Skills */}
+            <div className="bg-white/50 dark:bg-zinc-900/50 border border-zinc-200 dark:border-zinc-800 rounded-3xl p-6 md:p-8 shadow-sm backdrop-blur-xl transition-all duration-500 hover:shadow-lg hover:border-blue-500/30">
+              {/* Header */}
+              <div className="flex items-center gap-3 mb-6 pb-4 border-b border-zinc-200 dark:border-zinc-800">
+                <div className="flex items-center justify-center w-9 h-9 rounded-xl bg-blue-600 text-white shadow-md shadow-blue-500/30">
+                  <FiCpu className="w-5 h-5" />
+                </div>
+                <div>
+                  <h3 className="text-base font-bold text-zinc-900 dark:text-zinc-100">
                     Hard Skills
-                  </button>
-                  <button
-                    onClick={() => setActiveTab("soft")}
-                    className={`flex items-center gap-2 px-4 py-2 font-bold rounded-lg transition-all ${
-                      activeTab === "soft"
-                        ? "bg-purple-600 text-white shadow-md shadow-purple-500/20"
-                        : "text-zinc-500 hover:text-zinc-800 dark:text-zinc-400 dark:hover:text-zinc-200 hover:bg-zinc-100 dark:hover:bg-zinc-800"
-                    }`}
-                  >
-                    <FiMessageCircle className="w-5 h-5" />
-                    Soft Skills
-                  </button>
+                  </h3>
+                  <p className="text-xs text-zinc-500 dark:text-zinc-400">
+                    Technical Proficiencies
+                  </p>
                 </div>
-                <div className="text-sm font-medium text-zinc-500 dark:text-zinc-400 px-4 hidden sm:block">
-                  {activeTab === "hard"
-                    ? "Technical Proficiencies"
-                    : "Interpersonal Abilities"}
-                </div>
+                <span className="ml-auto text-xs font-semibold bg-blue-100 dark:bg-blue-900/40 text-blue-600 dark:text-blue-400 px-2.5 py-1 rounded-full">
+                  {hardSkillsIcons.length} skills
+                </span>
               </div>
 
-              <div className="min-h-[280px]">
-                {activeTab === "hard" && (
-                  <div className="animate-in fade-in slide-in-from-bottom-4 duration-500">
-                    <GlassIcons items={hardSkillsIcons} colorful={true} />
+              {/* Icons Grid */}
+              <GlassIcons items={hardSkillsIcons} colorful={true} />
+            </div>
+
+            {/* Soft Skills */}
+            <div className="bg-white/50 dark:bg-zinc-900/50 border border-zinc-200 dark:border-zinc-800 rounded-3xl p-6 md:p-8 shadow-sm backdrop-blur-xl transition-all duration-500 hover:shadow-lg hover:border-purple-500/30">
+              {/* Header */}
+              <div className="flex items-center gap-3 mb-6 pb-4 border-b border-zinc-200 dark:border-zinc-800">
+                <div className="flex items-center justify-center w-9 h-9 rounded-xl bg-purple-600 text-white shadow-md shadow-purple-500/30">
+                  <FiMessageCircle className="w-5 h-5" />
+                </div>
+                <div>
+                  <h3 className="text-base font-bold text-zinc-900 dark:text-zinc-100">
+                    Soft Skills
+                  </h3>
+                  <p className="text-xs text-zinc-500 dark:text-zinc-400">
+                    Interpersonal Abilities
+                  </p>
+                </div>
+                <span className="ml-auto text-xs font-semibold bg-purple-100 dark:bg-purple-900/40 text-purple-600 dark:text-purple-400 px-2.5 py-1 rounded-full">
+                  {softSkills.length} skills
+                </span>
+              </div>
+
+              {/* Soft Skill Cards */}
+              <div className="flex flex-col gap-3">
+                {softSkills.map((skill, index) => (
+                  <div
+                    key={skill.label}
+                    className="flex items-center gap-4 px-4 py-3.5 rounded-2xl bg-zinc-50 dark:bg-zinc-800/60 border border-zinc-200/70 dark:border-zinc-700/50 hover:border-purple-400/50 dark:hover:border-purple-500/40 hover:bg-purple-50/50 dark:hover:bg-purple-900/10 transition-all duration-300 hover:-translate-y-0.5 group"
+                    style={{ animationDelay: `${index * 0.08}s` }}
+                  >
+                    <span className="text-2xl select-none group-hover:scale-110 transition-transform duration-300">
+                      {skill.emoji}
+                    </span>
+                    <span className="font-semibold text-zinc-800 dark:text-zinc-200 text-sm">
+                      {skill.label}
+                    </span>
+                    <span className="ml-auto w-2 h-2 rounded-full bg-purple-400/60 dark:bg-purple-500/60 group-hover:bg-purple-500 dark:group-hover:bg-purple-400 transition-colors duration-300"></span>
                   </div>
-                )}
-                {activeTab === "soft" && (
-                  <div className="flex flex-wrap gap-4 animate-in fade-in slide-in-from-bottom-4 duration-500">
-                    {softSkills.map((skill) => (
-                      <div
-                        key={skill}
-                        className="hover:-translate-y-1 transition-transform duration-300"
-                      >
-                        <Pill variant="soft-skill">{skill}</Pill>
-                      </div>
-                    ))}
-                  </div>
-                )}
+                ))}
               </div>
             </div>
           </div>
