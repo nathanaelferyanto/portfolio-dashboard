@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { SectionHeading } from "../molecules/SectionHeading";
 import { ProjectCard, ProjectCardProps } from "../molecules/ProjectCard";
 import { ProjectModal } from "../molecules/ProjectModal";
+import { motion } from "framer-motion";
 
 export const ProjectsSection = () => {
   const [selectedProject, setSelectedProject] =
@@ -137,6 +138,26 @@ export const ProjectsSection = () => {
     },
   ];
 
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, scale: 0.9, y: 30 },
+    visible: { 
+      opacity: 1, 
+      scale: 1, 
+      y: 0, 
+      transition: { duration: 0.5 } 
+    },
+  };
+
   return (
     <section
       id="projects"
@@ -147,15 +168,22 @@ export const ProjectsSection = () => {
         subtitle="Some of the recent software solutions I've designed and built."
       />
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <motion.div 
+        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+        variants={containerVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-100px" }}
+      >
         {projects.map((project, index) => (
-          <ProjectCard
-            key={index}
-            {...project}
-            onClick={() => setSelectedProject(project as ProjectCardProps)}
-          />
+          <motion.div key={index} variants={itemVariants}>
+            <ProjectCard
+              {...project}
+              onClick={() => setSelectedProject(project as ProjectCardProps)}
+            />
+          </motion.div>
         ))}
-      </div>
+      </motion.div>
 
       {selectedProject && (
         <ProjectModal

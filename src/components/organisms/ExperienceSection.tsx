@@ -1,6 +1,8 @@
+"use client";
 import React from "react";
 import { SectionHeading } from "../molecules/SectionHeading";
 import { TimelineItem } from "../molecules/TimelineItem";
+import { motion } from "framer-motion";
 
 export const ExperienceSection = () => {
   const experiences = [
@@ -56,6 +58,25 @@ export const ExperienceSection = () => {
     },
   ];
 
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.3,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, x: -50 },
+    visible: { 
+      opacity: 1, 
+      x: 0, 
+      transition: { duration: 0.6 } 
+    },
+  };
+
   return (
     <section
       id="experience"
@@ -66,11 +87,19 @@ export const ExperienceSection = () => {
         subtitle="My professional journey in software development."
       />
 
-      <div className="space-y-12">
+      <motion.div 
+        className="space-y-12"
+        variants={containerVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-100px" }}
+      >
         {experiences.map((exp, index) => (
-          <TimelineItem key={index} {...exp} />
+          <motion.div key={index} variants={itemVariants}>
+            <TimelineItem {...exp} />
+          </motion.div>
         ))}
-      </div>
+      </motion.div>
     </section>
   );
 };

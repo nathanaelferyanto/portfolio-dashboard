@@ -48,7 +48,7 @@ export const CertificationCard = ({
             onClick={() => setIsOpen(true)}
             className="relative w-full overflow-hidden cursor-zoom-in bg-zinc-100 dark:bg-zinc-800"
             style={{ aspectRatio: "16 / 9" }}
-            title="Klik untuk lihat sertifikat"
+            title="Click to view certificate"
           >
             {imageUrl ? (
               <Image
@@ -134,7 +134,7 @@ export const CertificationCard = ({
                   <path strokeLinecap="round" strokeLinejoin="round" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
                 </svg>
               )}
-              {pdfUrl && !imageUrl ? "Buka PDF" : "Lihat Sertifikat"}
+              {pdfUrl && !imageUrl ? "Open PDF" : "View Certificate"}
             </button>
           )}
           </div>
@@ -166,7 +166,7 @@ export const CertificationCard = ({
               <button
                 onClick={() => setIsOpen(false)}
                 className="shrink-0 text-zinc-400 hover:text-white bg-white/10 hover:bg-white/20 rounded-full p-2 transition-all"
-                title="Tutup (Esc)"
+                title="Close (Esc)"
               >
                 <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
@@ -203,7 +203,7 @@ export const CertificationCard = ({
             ) : null}
 
             <p className="text-center text-zinc-500 text-xs">
-              Klik di luar · tekan Esc untuk menutup
+              Click outside · press Esc to close
             </p>
           </div>
         </div>
