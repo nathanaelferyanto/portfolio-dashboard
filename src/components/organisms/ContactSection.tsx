@@ -45,7 +45,7 @@ export const ContactSection = () => {
           </a>
         </div>
         <p className="text-blue-200 mt-8 text-sm">
-          Bogor, Indonesia • +62 895 6131 62019
+          Bogor, Indonesia
         </p>
       </div>
     </section>

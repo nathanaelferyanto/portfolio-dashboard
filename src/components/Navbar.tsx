@@ -10,40 +10,41 @@ import {
   FiCode,
 } from "react-icons/fi";
 import { useState, useEffect } from "react";
+import { ThemeToggle } from "./atoms/ThemeToggle";
 
 const navItems = [
   {
-    href: "home",
+    href: "#home",
     id: "home",
     label: "Home",
     icon: <FiHome className="w-5 h-5" />,
   },
   {
-    href: "about",
+    href: "#about",
     id: "about",
     label: "About",
     icon: <FiUser className="w-5 h-5" />,
   },
   {
-    href: "experience",
+    href: "#experience",
     id: "experience",
     label: "Experience",
     icon: <FiBriefcase className="w-5 h-5" />,
   },
   {
-    href: "projects",
+    href: "#projects",
     id: "projects",
     label: "Projects",
     icon: <FiCode className="w-5 h-5" />,
   },
   {
-    href: "education",
+    href: "#education",
     id: "education",
     label: "Education",
     icon: <FiBookOpen className="w-5 h-5" />,
   },
   {
-    href: "contact",
+    href: "#contact",
     id: "contact",
     label: "Contact",
     icon: <FiMail className="w-5 h-5" />,
@@ -79,8 +80,8 @@ const Navbar = () => {
 
   return (
     <>
-      <div className="fixed left-2 sm:left-4 md:left-8 top-1/2 -translate-y-1/2 z-50 transition-all duration-300">
-        <nav className="flex flex-col gap-3 sm:gap-4 bg-white/70 dark:bg-zinc-900/70 backdrop-blur-xl p-2 sm:p-3 border border-zinc-200/50 dark:border-zinc-800/50 rounded-full shadow-2xl">
+      <div className="fixed bottom-4 sm:bottom-auto left-1/2 sm:left-4 md:left-8 top-auto sm:top-1/2 -translate-x-1/2 sm:translate-x-0 sm:-translate-y-1/2 z-50 transition-all duration-300 w-full max-w-[90%] sm:w-auto sm:max-w-none">
+        <nav className="flex flex-row sm:flex-col justify-between sm:justify-start gap-1 sm:gap-4 bg-white/70 dark:bg-zinc-900/70 backdrop-blur-xl p-2 sm:p-3 border border-zinc-200/50 dark:border-zinc-800/50 rounded-full shadow-2xl">
           {navItems.map((item) => {
             const isActive = activeSection === item.id;
             return (
@@ -105,6 +106,11 @@ const Navbar = () => {
               </Link>
             );
           })}
+
+          <div className="w-full sm:w-8 h-px sm:h-px bg-zinc-200 dark:bg-zinc-800 my-1 sm:my-2 hidden sm:block"></div>
+          <div className="hidden sm:block"></div> {/* Spacer for mobile */}
+
+          <ThemeToggle />
         </nav>
       </div>
     </>

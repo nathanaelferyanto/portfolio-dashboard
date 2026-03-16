@@ -100,7 +100,10 @@ export const EducationSection = () => {
                 title="Cloud Computing Program Certificate"
                 issuer="Bangkit Academy"
                 date="Jan 2024"
-                pdfUrl="/images/[Bangkit 2023 Batch 2] Certificate - C001BSY3824.pdf"
+                imageUrl={[
+                  "/images/Bangkit Certificate 1.png",
+                  "/images/Bangkit Certificate 2.png",
+                ]}
               />
             </motion.div>
             <motion.div variants={itemVariants}>
@@ -108,7 +111,10 @@ export const EducationSection = () => {
                 title="Belajar Membuat Aplikasi Back-End untuk Pemula dengan Google Cloud"
                 issuer="Dicoding"
                 date="2023"
-                pdfUrl="/images/Dicoding Academy Certificate.pdf"
+                imageUrl={[
+                  "/images/Dicoding Academy Certificate_page-0001.jpg",
+                  "/images/Dicoding Academy Certificate_page-0002.jpg",
+                ]}
               />
             </motion.div>
             <motion.div variants={itemVariants}>
@@ -116,7 +122,7 @@ export const EducationSection = () => {
                 title="English for Business Communication"
                 issuer="The British Institute"
                 date="Nov 2023"
-                pdfUrl="/images/bangkit nov 8_1799.pdf"
+                imageUrl="/images/bangkit nov 8_1799_page-0001.jpg"
               />
             </motion.div>
           </div>
