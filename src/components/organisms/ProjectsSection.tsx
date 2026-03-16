@@ -3,9 +3,11 @@ import React, { useState } from "react";
 import { SectionHeading } from "../molecules/SectionHeading";
 import { ProjectCard, ProjectCardProps } from "../molecules/ProjectCard";
 import { ProjectModal } from "../molecules/ProjectModal";
-import { motion } from "framer-motion";
+import { CertificationCard } from "../molecules/CertificationCard";
+import { motion, AnimatePresence } from "framer-motion";
 
 export const ProjectsSection = () => {
+  const [activeTab, setActiveTab] = useState<"projects" | "certifications">("projects");
   const [selectedProject, setSelectedProject] =
     useState<ProjectCardProps | null>(null);
 
@@ -138,6 +140,39 @@ export const ProjectsSection = () => {
     },
   ];
 
+  const certifications = [
+    {
+      title: "Software Engineer Competency Certification",
+      issuer: "BNSP",
+      date: "Valid: Sep 2025 - Sep 2028",
+      imageUrl: "/images/Serifikasi_Software Engineering_Nathanael Jonathan Feryanto_page-0001.jpg",
+    },
+    {
+      title: "Cloud Computing Program Certificate",
+      issuer: "Bangkit Academy",
+      date: "Jan 2024",
+      imageUrl: [
+        "/images/Bangkit Certificate 1.png",
+        "/images/Bangkit Certificate 2.png",
+      ],
+    },
+    {
+      title: "Belajar Membuat Aplikasi Back-End untuk Pemula dengan Google Cloud",
+      issuer: "Dicoding",
+      date: "2023",
+      imageUrl: [
+        "/images/Dicoding Academy Certificate_page-0001.jpg",
+        "/images/Dicoding Academy Certificate_page-0002.jpg",
+      ],
+    },
+    {
+      title: "English for Business Communication",
+      issuer: "The British Institute",
+      date: "Nov 2023",
+      imageUrl: "/images/bangkit nov 8_1799_page-0001.jpg",
+    },
+  ];
+
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -164,26 +199,88 @@ export const ProjectsSection = () => {
       className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-32 space-y-16"
     >
       <SectionHeading
-        title="Featured Projects"
-        subtitle="Some of the recent software solutions I've designed and built."
+        title="Portfolio & Certifications"
+        subtitle="Some of the recent software solutions I've built and the professional certifications I've earned."
       />
 
-      <motion.div 
-        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
-        variants={containerVariants}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, margin: "-100px" }}
-      >
-        {projects.map((project, index) => (
-          <motion.div key={index} variants={itemVariants}>
-            <ProjectCard
-              {...project}
-              onClick={() => setSelectedProject(project as ProjectCardProps)}
-            />
-          </motion.div>
-        ))}
-      </motion.div>
+      <div className="flex justify-center w-full mt-4 mb-4">
+        <div className="bg-zinc-100 dark:bg-zinc-800/80 p-1.5 rounded-full inline-flex border border-zinc-200 dark:border-zinc-700 shadow-sm relative overflow-hidden">
+          <button
+            onClick={() => setActiveTab("projects")}
+            className={`relative px-6 py-2.5 sm:px-8 text-sm sm:text-base font-semibold rounded-full transition-all duration-300 z-10 ${
+              activeTab === "projects"
+                ? "text-white"
+                : "text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100"
+            }`}
+          >
+            {activeTab === "projects" && (
+              <motion.div
+                layoutId="activeTabBadge"
+                className="absolute inset-0 bg-blue-600 rounded-full shadow-md"
+                transition={{ type: "spring", stiffness: 400, damping: 30 }}
+              />
+            )}
+            <span className="relative z-20">Featured Projects</span>
+          </button>
+          
+          <button
+            onClick={() => setActiveTab("certifications")}
+            className={`relative px-6 py-2.5 sm:px-8 text-sm sm:text-base font-semibold rounded-full transition-all duration-300 z-10 ${
+              activeTab === "certifications"
+                ? "text-white"
+                : "text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100"
+            }`}
+          >
+            {activeTab === "certifications" && (
+              <motion.div
+                layoutId="activeTabBadge"
+                className="absolute inset-0 bg-blue-600 rounded-full shadow-md"
+                transition={{ type: "spring", stiffness: 400, damping: 30 }}
+              />
+            )}
+            <span className="relative z-20">Certifications</span>
+          </button>
+        </div>
+      </div>
+
+      <div className="min-h-[500px]">
+        <AnimatePresence mode="wait">
+          {activeTab === "projects" ? (
+            <motion.div 
+              key="projects"
+              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+              variants={containerVariants}
+              initial="hidden"
+              animate="visible"
+              exit={{ opacity: 0, y: -20, transition: { duration: 0.2 } }}
+            >
+              {projects.map((project, index) => (
+                <motion.div key={index} variants={itemVariants}>
+                  <ProjectCard
+                    {...project}
+                    onClick={() => setSelectedProject(project as ProjectCardProps)}
+                  />
+                </motion.div>
+              ))}
+            </motion.div>
+          ) : (
+            <motion.div 
+              key="certifications"
+              className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
+              variants={containerVariants}
+              initial="hidden"
+              animate="visible"
+              exit={{ opacity: 0, y: -20, transition: { duration: 0.2 } }}
+            >
+              {certifications.map((cert, index) => (
+                <motion.div key={index} variants={itemVariants}>
+                  <CertificationCard {...cert} />
+                </motion.div>
+              ))}
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </div>
 
       {selectedProject && (
         <ProjectModal

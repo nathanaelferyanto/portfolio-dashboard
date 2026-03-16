@@ -4,6 +4,8 @@ import Image from "next/image";
 import { Pill } from "../atoms/Pill";
 import GlassIcons from "../atoms/GlassIcons";
 import { FiCpu, FiMessageCircle } from "react-icons/fi";
+import { EducationCard } from "../molecules/EducationCard";
+import { LanguageCard } from "../molecules/LanguageCard";
 import { motion } from "framer-motion";
 import {
   SiJavascript,
@@ -204,6 +206,66 @@ export const AboutSection = () => {
                   </motion.div>
                 ))}
               </motion.div>
+            </motion.div>
+          </div>
+
+          {/* ── Education & Languages ── */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 mt-4 lg:mt-8">
+            <motion.div 
+               className="lg:col-span-8 flex flex-col gap-4 bg-white/50 dark:bg-zinc-900/50 border border-zinc-200 dark:border-zinc-800 rounded-3xl p-6 md:p-8 shadow-sm backdrop-blur-xl transition-all duration-500 hover:shadow-lg hover:border-blue-500/30"
+               initial={{ opacity: 0, y: 30 }}
+               whileInView={{ opacity: 1, y: 0 }}
+               viewport={{ once: true }}
+            >
+              <div className="flex flex-col mb-2">
+                <p className="text-xs font-bold uppercase tracking-widest text-blue-600 dark:text-blue-400 mb-1">
+                  Academic
+                </p>
+                <h3 className="text-2xl font-black tracking-tight text-zinc-900 dark:text-zinc-100">
+                  Education
+                </h3>
+              </div>
+              <EducationCard
+                institution="IPB University"
+                location="Bogor, Indonesia"
+                duration="Aug 2021 - Aug 2025"
+                badgeColor="blue"
+                title="Bachelor of Applied Science"
+                subtitle="Software Engineering Technology"
+                gpa="3.68/4.00"
+                imageUrl="/images/SV Logo.png"
+                details={
+                  <>
+                    <strong className="text-zinc-900 dark:text-zinc-100">
+                      Final Project:
+                    </strong>{" "}
+                    Development of an Investor Management Module for Batch-Based
+                    Investment in the Sukaharja Quail Business Investment
+                    Application
+                  </>
+                }
+              />
+            </motion.div>
+
+            <motion.div 
+               className="lg:col-span-4 flex flex-col gap-4 bg-white/50 dark:bg-zinc-900/50 border border-zinc-200 dark:border-zinc-800 rounded-3xl p-6 md:p-8 shadow-sm backdrop-blur-xl transition-all duration-500 hover:shadow-lg hover:border-purple-500/30"
+               initial={{ opacity: 0, y: 30 }}
+               whileInView={{ opacity: 1, y: 0 }}
+               viewport={{ once: true }}
+               transition={{ delay: 0.1 }}
+            >
+              <div className="flex flex-col mb-2">
+                <p className="text-xs font-bold uppercase tracking-widest text-blue-600 dark:text-blue-400 mb-1">
+                  Communication
+                </p>
+                <h3 className="text-2xl font-black tracking-tight text-zinc-900 dark:text-zinc-100">
+                  Languages
+                </h3>
+              </div>
+              <div className="flex flex-col gap-4 mt-2">
+                <LanguageCard language="Indonesian" proficiency="Native" />
+                <LanguageCard language="English" proficiency="Conversational" />
+              </div>
             </motion.div>
           </div>
         </div>

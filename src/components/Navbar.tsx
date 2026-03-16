@@ -5,7 +5,6 @@ import {
   FiHome,
   FiUser,
   FiBriefcase,
-  FiBookOpen,
   FiMail,
   FiCode,
 } from "react-icons/fi";
@@ -36,12 +35,6 @@ const navItems = [
     id: "projects",
     label: "Projects",
     icon: <FiCode className="w-5 h-5" />,
-  },
-  {
-    href: "#education",
-    id: "education",
-    label: "Education",
-    icon: <FiBookOpen className="w-5 h-5" />,
   },
   {
     href: "#contact",

@@ -2,7 +2,6 @@ import { HeroSection } from "@/components/organisms/HeroSection";
 import { AboutSection } from "@/components/organisms/AboutSection";
 import { ExperienceSection } from "@/components/organisms/ExperienceSection";
 import { ProjectsSection } from "@/components/organisms/ProjectsSection";
-import { EducationSection } from "@/components/organisms/EducationSection";
 import { ContactSection } from "@/components/organisms/ContactSection";
 import { Reveal } from "@/components/atoms/Reveal";
 
@@ -28,12 +27,6 @@ export default function Home() {
       <div className="min-h-[100dvh] w-full flex flex-col justify-center">
         <Reveal width="100%">
           <ProjectsSection />
-        </Reveal>
-      </div>
-      
-      <div className="min-h-[100dvh] w-full flex flex-col justify-center">
-        <Reveal width="100%">
-          <EducationSection />
         </Reveal>
       </div>
 
