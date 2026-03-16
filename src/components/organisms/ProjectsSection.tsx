@@ -13,7 +13,7 @@ export const ProjectsSection = () => {
     {
       title: "Quail Farm Inventory Management",
       description:
-        "Dashboard application to monitor daily, monthly, and yearly quail egg production and population data, featuring interactive charts and reporting tools.",
+        "Dashboard application to monitor daily, monthly, and yearly quail egg production and population data, featuring interactive charts and reporting tools. Provided management with daily performance insights.",
       tags: [
         "MySQL",
         "HTML",

@@ -27,15 +27,22 @@ export const TimelineItem = ({
 
   return (
     <div className="relative pl-8 md:pl-0">
+      {/* Mobile vertical line */}
+      <div className="md:hidden absolute left-[11px] top-2 bottom-0 w-px bg-zinc-200 dark:bg-zinc-800"></div>
+      
+      {/* Desktop vertical line */}
       <div className="hidden md:block absolute left-1/4 top-0 bottom-0 w-px bg-zinc-200 dark:bg-zinc-800"></div>
+
+      {/* Mobile Dot */}
+      <div
+        className={`md:hidden absolute left-[5.5px] top-1.5 w-3 h-3 rounded-full ${pinColorBase} ring-4 ring-white dark:ring-zinc-950 z-10`}
+      ></div>
 
       <div className="md:flex gap-8 relative">
         <div className="md:w-1/4 pb-4 md:pb-0 z-10 flex flex-col items-start md:items-end md:text-right">
+          {/* Desktop Dot */}
           <div
-            className={`absolute left-0 w-3 h-3 rounded-full ${pinColorBase} top-2 md:hidden -ml-[5px]`}
-          ></div>
-          <div
-            className={`hidden md:block absolute left-1/4 w-3 h-3 rounded-full ${pinColorBase} top-2 -ml-[5px] ring-4 ring-white dark:ring-black`}
+            className={`hidden md:block absolute left-1/4 w-3 h-3 rounded-full ${pinColorBase} top-1.5 -ml-[5px] ring-4 ring-white dark:ring-zinc-950`}
           ></div>
           <span className={`text-sm font-bold ${textColorBase}`}>
             {duration}
