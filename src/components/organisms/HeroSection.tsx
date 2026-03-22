@@ -39,7 +39,7 @@ export const HeroSection = () => {
 
       <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center justify-center gap-12 z-10 relative">
         <motion.div
-          className="w-full max-w-5xl mx-auto space-y-10 md:space-y-12 text-center flex flex-col items-center bg-white/40 dark:bg-black/40 backdrop-blur-sm sm:bg-transparent sm:dark:bg-transparent sm:backdrop-blur-none p-8 sm:p-0 rounded-3xl"
+          className="w-full max-w-5xl mx-auto space-y-10 md:space-y-12 text-center flex flex-col items-center"
           variants={containerVariants}
           initial="hidden"
           animate="visible"
@@ -53,27 +53,27 @@ export const HeroSection = () => {
             </span>
           </motion.h1>
 
-          {/* Glassmorphic Pill Marquee (Enlarged) */}
+          {/* Transparent Pill Marquee (Enlarged and Faster for Mobile) */}
           <motion.div 
-            className="w-[95%] max-w-[400px] sm:max-w-[700px] md:max-w-[850px] overflow-hidden bg-white/50 dark:bg-zinc-800/50 backdrop-blur-xl border border-zinc-200/60 dark:border-zinc-700/60 rounded-full py-4 md:py-6 flex items-center shadow-xl relative mt-4 md:mt-8"
+            className="w-full sm:w-[95%] max-w-[100vw] sm:max-w-[700px] md:max-w-[850px] overflow-hidden py-3.5 sm:py-4 md:py-6 flex items-center relative mt-4 md:mt-8 bg-transparent"
             variants={itemVariants}
           >
-            <div className="w-full [mask-image:linear-gradient(to_right,transparent,black_15%,black_85%,transparent)] flex items-center">
+            <div className="w-full [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)] flex items-center">
               <motion.div
                 className="flex whitespace-nowrap items-center w-max"
                 animate={{ x: ["0%", "-33.333333%"] }}
                 transition={{
                   repeat: Infinity,
                   ease: "linear",
-                  duration: 30, // Slowed down slightly for legibility on larger text
+                  duration: 15, // Sped up for mobile legibility
                 }}
               >
                 {marqueeItems.map((title, index) => (
                   <React.Fragment key={index}>
-                    <span className="text-lg sm:text-2xl md:text-3xl font-black tracking-wider uppercase text-zinc-800 dark:text-zinc-100 px-8 md:px-12">
+                    <span className="text-base sm:text-2xl md:text-3xl font-black tracking-wide md:tracking-wider uppercase text-zinc-800 dark:text-zinc-100 px-5 sm:px-8 md:px-12">
                       {title}
                     </span>
-                    <span className="w-2 h-2 md:w-3 md:h-3 rounded-full bg-blue-500 shadow-[0_0_12px_rgba(59,130,246,0.9)]"></span>
+                    <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 md:w-3 md:h-3 rounded-full bg-blue-500 shadow-[0_0_12px_rgba(59,130,246,0.9)]"></span>
                   </React.Fragment>
                 ))}
               </motion.div>
