@@ -5,12 +5,14 @@ interface ButtonProps {
   href: string;
   variant?: "primary" | "outline";
   children: React.ReactNode;
+  className?: string;
 }
 
 export const Button = ({
   href,
   variant = "primary",
   children,
+  className = "",
 }: ButtonProps) => {
   const baseClasses =
     "px-8 py-3.5 rounded-full font-semibold transition-colors flex items-center justify-center gap-2";
@@ -23,7 +25,7 @@ export const Button = ({
   };
 
   return (
-    <Link href={href} className={`${baseClasses} ${variants[variant]}`}>
+    <Link href={href} className={`${baseClasses} ${variants[variant]} ${className}`}>
       {children}
     </Link>
   );
