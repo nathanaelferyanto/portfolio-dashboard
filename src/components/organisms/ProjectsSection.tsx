@@ -142,6 +142,20 @@ export const ProjectsSection = () => {
 
   const certifications = [
     {
+      title: "SQL 101: Belajar SQL dari Nol",
+      issuer: "NgulikData.com",
+      date: "Apr 2026",
+      imageUrl: "/images/Certificate/sql-101-certificate.png",
+    },
+    {
+      title: "Prompt Engineering untuk Software Developer",
+      issuer: "Dicoding",
+      date: "Apr 2026",
+      imageUrl: ["/images/Certificate/sertifikat_course_753_3138510_170426103027_page-0001.jpg",
+      "/images/Certificate/sertifikat_course_753_3138510_170426103027_page-0002.jpg"
+      ],
+    },
+    {
       title: "Software Engineer Competency Certification",
       issuer: "BNSP",
       date: "Valid: Sep 2025 - Sep 2028",
@@ -159,7 +173,7 @@ export const ProjectsSection = () => {
     {
       title: "Belajar Membuat Aplikasi Back-End untuk Pemula dengan Google Cloud",
       issuer: "Dicoding",
-      date: "2023",
+      date: "Oct 2023",
       imageUrl: [
         "/images/Dicoding Academy Certificate_page-0001.jpg",
         "/images/Dicoding Academy Certificate_page-0002.jpg",
