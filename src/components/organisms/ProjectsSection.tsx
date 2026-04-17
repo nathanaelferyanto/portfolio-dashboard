@@ -159,15 +159,15 @@ export const ProjectsSection = () => {
       title: "Software Engineer Competency Certification",
       issuer: "BNSP",
       date: "Valid: Sep 2025 - Sep 2028",
-      imageUrl: "/images/Serifikasi_Software Engineering_Nathanael Jonathan Feryanto_page-0001.jpg",
+      imageUrl: "/images/Certificate/Serifikasi_Software Engineering_Nathanael Jonathan Feryanto_page-0001.jpg",
     },
     {
       title: "Cloud Computing Program Certificate",
       issuer: "Bangkit Academy",
       date: "Jan 2024",
       imageUrl: [
-        "/images/Bangkit Certificate 1.png",
-        "/images/Bangkit Certificate 2.png",
+        "/images/Certificate/Bangkit Certificate 1.png",
+        "/images/Certificate/Bangkit Certificate 2.png",
       ],
     },
     {
@@ -175,15 +175,15 @@ export const ProjectsSection = () => {
       issuer: "Dicoding",
       date: "Oct 2023",
       imageUrl: [
-        "/images/Dicoding Academy Certificate_page-0001.jpg",
-        "/images/Dicoding Academy Certificate_page-0002.jpg",
+        "/images/Certificate/Dicoding Academy Certificate_page-0001.jpg",
+        "/images/Certificate/Dicoding Academy Certificate_page-0002.jpg",
       ],
     },
     {
       title: "English for Business Communication",
       issuer: "The British Institute",
       date: "Nov 2023",
-      imageUrl: "/images/bangkit nov 8_1799_page-0001.jpg",
+      imageUrl: "/images/Certificate/bangkit nov 8_1799_page-0001.jpg",
     },
   ];
 
